@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        consolePrint("수지");
+        //함수선언문 호이스팅 o
+        function consolePrint(name) {
+            console.log(name+'안녕하세용');
+        }
+        //함수표현식 호이스팅 x
+        let print = function(){
+            console.log('안녕히가세요');
+        }
+        print();
+        consolePrint("나리");
+        consolePrint("미나");
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        #toggle {
+            padding: 50px;
+            font-size: 32px;
+        }
+        #menu {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            top: 0;
+            left: -100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+        #menu.on {
+            left: 0;
+        }
+        #menu span {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 52px;
+        }
+        li {list-style: none; line-height: 50px; font-size: 25px;}
+    </style>
+</head>
+<body>
+    <div id="toggle" onclick="showMenu()">open</div>
+    <div id="menu" style="text-decoration: underline;">
+        <span onclick="hideMenu()">X</span>
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </ul>
+    </div>
+    <script>
+            //menu에 display속성을 경고창에 띄워
+        const divMenu = document.querySelector('#menu');
+        let divStyle = window.getComputedStyle(divMenu);
+            //color속성의 값을 반환
+        // divStyle.getPropertyValue('color');
+        console.log(divStyle.getPropertyValue('display'));
+        console.log(divStyle)
+        function showMenu(){
+            //아이디 menu에게 클래스 on을 추가해 
+            divMenu.classList.add('on');
+        }
+        function hideMenu(){
+            //아이디 menu에게 클래스 on을 제거해 
+            divMenu.classList.remove('on');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        li {list-style: none;}
+        section {
+            display: none;
+        }
+        section.show {
+            display: block;
+        }
+        #toggle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: antiquewhite;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        #toggle span {
+            width: 60%;
+            height: 3px;
+            background-color: black;
+            margin: 2px 0;
+        }
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0);
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        #menu.on {
+            background-color: rgba(0,0,0,0.4);
+        }
+        #menu.on ul {
+            right: 0;
+            top: 0;
+        }
+        #menu ul {
+            width: 20%;
+            height: 100vh;
+            background-color: royalblue;
+            position: absolute;
+            right: -100%;
+            top: -100%;
+            color: #fff;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="item">의미없는 div입니다.</div>
+    <button onclick="show()">클릭하세요</button>
+    <section class="show">
+        나는 show라는 클래스가 붙어야 볼수있습니다.
+    </section>
+    <div id="toggle" onmouseenter="menuView()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="menu">
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+        </ul>
+    </div>
+    <script>
+        function show(){
+            document.querySelector('section').classList.toggle('show');
+        }
+        function menuView(){
+            document.querySelector('#menu').classList.toggle('on')
+        }
+
+    </script>
+</body>
+</html>
